@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業管理系統入口門戶</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --primary-color: #2c3e50;
+            --accent-blue: #3498db;
+            --accent-green: #1abc9c;
+            --accent-teal: #16a085;
+            --accent-purple: #9b59b6; /* 新增第四個系統的紫色系 */
+            --text-main: #333333;
+            --text-sub: #7f8c8d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            font-weight: 300;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 10px;
+        }
+
+        .portal-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        /* 各卡片的色系與圖示背景 */
+        .card-inventory .icon-wrapper { background: rgba(52, 152, 219, 0.1); color: var(--accent-blue); }
+        .card-laundry .icon-wrapper { background: rgba(26, 188, 156, 0.1); color: var(--accent-green); }
+        .card-fabric .icon-wrapper { background: rgba(22, 160, 133, 0.1); color: var(--accent-teal); }
+        .card-admin .icon-wrapper { background: rgba(155, 89, 182, 0.1); color: var(--accent-purple); }
+
+        .portal-card:hover .icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .portal-card h2 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .portal-card p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            min-height: 48px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 24px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: background 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-inventory .btn { background: var(--accent-blue); }
+        .card-inventory .btn:hover { background: #2980b9; }
+        
+        .card-laundry .btn { background: var(--accent-green); }
+        .card-laundry .btn:hover { background: #16a085; }
+
+        .card-fabric .btn { background: var(--accent-teal); }
+        .card-fabric .btn:hover { background: #117a65; }
+
+        .card-admin .btn { background: var(--accent-purple); }
+        .card-admin .btn:hover { background: #8e44ad; }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* 響應式微調 */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .portal-grid { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>跨部門作業管理系統</h1>
+            <p>請選擇您需要操作的系統平台</p>
+        </header>
+
+        <div class="portal-grid">
+            
+            <div class="portal-card card-inventory">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                <h2>庫存管理系统</h2>
+                <p>即時掌握物料水位、進出庫紀錄與資產盤點作業。</p>
+                <a href="https://script.google.com/macros/s/AKfycbwQoCDeOiIfj1GaOSijSa62KHcATYCQrhiCgsOsmxKA4Ep8NN_73uyFEkXaPaNUP5S0/exec" target="_blank" class="btn">進入系統</a>
+            </div>
+
+            <div class="portal-card card-laundry">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"></path></svg>
+                </div>
+                <h2>洗滌資料庫</h2>
+                <p>管理生產線洗滌參數、品質數據分析與相關製程紀錄。</p>
+                <a href="https://script.google.com/macros/s/AKfycbwDaGe0bGGDH7KhLZ-15a2VzVrBlrWbTFR8Gw9cd08-i7MNq_MJ9e6maPYabNGt8dIy/exec" target="_blank" class="btn">進入系統</a>
+            </div>
+
+            <div class="portal-card card-fabric">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2</polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <h2>布品登記平台</h2>
+                <p>負責各客戶與飯店布品的進出異動、交貨與清點登記。</p>
+                <a href="https://lenayay-hub.github.io/hotel_inventory/" target="_blank" class="btn">進入系統</a>
+            </div>
+
+            <div class="portal-card card-admin">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <h2>業務行政管理</h2>
+                <p>用於處理日常跨部門行政作業、訂單追蹤與排程管理表單。</p>
+                <a href="https://script.google.com/macros/s/AKfycbybf1Z4oUum9H6DF0MRbPreM-tMad1n8_Bzvkt1VOKJeVV0Rw5dzlLRXbtfd24RfaEm/exec" target="_blank" class="btn">進入系統</a>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>© 2026 內部作業管理系統整合版權所有</p>
+        </footer>
+    </div>
+
+</body>
+</html>
