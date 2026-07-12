@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作業管理系統入口門戶</title>
+    <title>百麒國際 - 跨部門系統入口門戶</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,7 +14,9 @@
             --accent-green: #1abc9c;
             --accent-teal: #16a085;
             --accent-purple: #9b59b6;
-            --accent-orange: #e67e22; /* 新增第五個系統的橘色系 */
+            --accent-orange: #e67e22; 
+            --accent-yellow: #f39c12; /* 財務系統金黃色 */
+            --accent-rose: #e74c3c;   /* 後台管理玫瑰紅 */
             --text-main: #333333;
             --text-sub: #7f8c8d;
         }
@@ -104,6 +106,8 @@
         .card-fabric .icon-wrapper { background: rgba(22, 160, 133, 0.1); color: var(--accent-teal); }
         .card-admin .icon-wrapper { background: rgba(155, 89, 182, 0.1); color: var(--accent-purple); }
         .card-production .icon-wrapper { background: rgba(230, 126, 34, 0.1); color: var(--accent-orange); }
+        .card-finance .icon-wrapper { background: rgba(243, 156, 18, 0.1); color: var(--accent-yellow); }
+        .card-superadmin .icon-wrapper { background: rgba(231, 76, 60, 0.1); color: var(--accent-rose); }
 
         .portal-card:hover .icon-wrapper {
             transform: scale(1.1);
@@ -151,6 +155,12 @@
 
         .card-production .btn { background: var(--accent-orange); }
         .card-production .btn:hover { background: #d35400; }
+
+        .card-finance .btn { background: var(--accent-yellow); }
+        .card-finance .btn:hover { background: #e67e22; }
+
+        .card-superadmin .btn { background: var(--accent-rose); }
+        .card-superadmin .btn:hover { background: #c0392b; }
 
         .btn:active {
             transform: scale(0.98);
@@ -224,10 +234,28 @@
                 <a href="https://script.google.com/macros/s/AKfycbzE5kVb6dYtxnckC_Q1JIrnsKfuGjD0P1XHejSO7YXHBWC7qnBb3DzkR38tkUrlRI6C7w/exec" target="_blank" class="btn">進入系統</a>
             </div>
 
+            <div class="portal-card card-finance">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
+                <h2>財務與電子發票</h2>
+                <p>處理 H2O 等客戶帳務、各項電子發票開立與每月銀行端請款作業。</p>
+                <a href="https://lenayay-hub.github.io/hotel_inventory/finance.html?hotel=H2O" target="_blank" class="btn">進入系統</a>
+            </div>
+
+            <div class="portal-card card-superadmin">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                </div>
+                <h2>人資與廠區後台管理</h2>
+                <p>內部人事招募設定、廠區人員排班管理以及系統總後台參數維護。</p>
+                <a href="https://script.google.com/macros/s/AKfycbzfm1vbwRTbBtwfJKYdJMRk814gvNsNMsvtyvIz9m9L7ALQp0CWCErFI7un7kmfh5id/exec?action=admin" target="_blank" class="btn">進入系統</a>
+            </div>
+
         </div>
 
         <footer>
-            <p>© 2026 內部作業管理系統整合版權所有</p>
+            <p>© 2026 百麒國際股份有限公司 內部作業管理系統版權所有</p>
         </footer>
     </div>
 
