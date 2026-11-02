@@ -172,6 +172,23 @@
             color: var(--text-sub);
         }
 
+
+        /* 最後兩張卡片：獨立識別色 */
+        .card-attendance .icon-wrapper { background: rgba(52, 73, 94, 0.10); color: #34495e; }
+        .card-fabric-admin .icon-wrapper { background: rgba(22, 160, 133, 0.10); color: var(--accent-teal); }
+        .card-attendance .btn { background: #34495e; }
+        .card-attendance .btn:hover { background: #253544; }
+        .card-fabric-admin .btn { background: var(--accent-teal); }
+        .card-fabric-admin .btn:hover { background: #117a65; }
+
+        /* 桌面三欄：最後兩張對稱置中，避免孤零零靠左 */
+        @media (min-width: 950px) {
+            .portal-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+            .portal-card { grid-column: span 2; }
+            .portal-card:nth-last-child(2) { grid-column: 2 / span 2; }
+            .portal-card:last-child { grid-column: 4 / span 2; }
+        }
+
         /* 響應式微調 */
         @media (max-width: 600px) {
             header h1 { font-size: 2rem; }
@@ -260,18 +277,18 @@
                 <a href="https://docs.google.com/spreadsheets/d/1DkB-tDXzO6PsUuyUE2EPO9e_7IjKYt2ZxlsUJfwdZxo/edit?gid=1800537343#gid=1800537343" target="_blank" class="btn">進入系統</a>
             </div>
         
-             <div class="portal-card card-superadmin">
+             <div class="portal-card card-attendance">
                 <div class="icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M7 3v4M17 3v4M3 10h18"></path><circle cx="12" cy="15" r="3"></circle><path d="M12 13.5V15l1 1"></path></svg>
                 </div>
                 <h2>打卡系統後台管理</h2>
                 <p>打卡試算表。</p>
                 <a href="https://bai-qi-laundering.github.io/hotellinen_service/finance-dashboard.html?release=77479af#payments" target="_blank" class="btn">進入系統</a>
             </div>
             
-            <div class="portal-card card-superadmin">
+            <div class="portal-card card-fabric-admin">
                 <div class="icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 9-4 9 4-9 4-9-4Z"></path><path d="m3 12 9 4 9-4M3 17l9 4 9-4"></path></svg>
                 </div>
                 <h2>布品系統後台管理</h2>
                 <p>布品數量登記流水、物流簽收、請款布品參數維護。</p>
