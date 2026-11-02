@@ -181,13 +181,14 @@
         .card-fabric-admin .btn { background: var(--accent-teal); }
         .card-fabric-admin .btn:hover { background: #117a65; }
 
-        /* 桌面三欄：最後兩張對稱置中，避免孤零零靠左 */
+        /* 桌面版：前六張三欄，後四張四欄，卡片等距整齊排列 */
         @media (min-width: 950px) {
-            .portal-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-            .portal-card { grid-column: span 2; }
-            .portal-card:nth-last-child(2) { grid-column: 2 / span 2; }
-            .portal-card:last-child { grid-column: 4 / span 2; }
+            .portal-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+            .portal-card { grid-column: span 4; }
+            .portal-card:nth-child(n+7) { grid-column: span 3; }
         }
+
+        
 
         /* 響應式微調 */
         @media (max-width: 600px) {
@@ -270,7 +271,7 @@
             </div>
              <div class="portal-card card-superadmin">
                 <div class="icon-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 </div>
                 <h2>財務系統</h2>
                 <p>財務系統、對帳單、發票</p>
